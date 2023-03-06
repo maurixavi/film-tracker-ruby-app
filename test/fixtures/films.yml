@@ -1,0 +1,59 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  year: 1
+  duration: 1
+  country: MyString
+  director: MyString
+  genre: MyString
+  description: MyText
+  watched: 2023-03-04
+  my_rating: 
+  1.5: MyString
+  2: MyString
+  2.5: MyString
+  3: MyString
+  3.5: MyString
+  4: MyString
+  4.5: MyString
+  5: MyString
+  5.5: MyString
+  6: MyString
+  6.5: MyString
+  7: MyString
+  7.5: MyString
+  8: MyString
+  8.5: MyString
+  9: MyString
+  9.5: MyString
+  10}: MyString
+
+two:
+  title: MyString
+  year: 1
+  duration: 1
+  country: MyString
+  director: MyString
+  genre: MyString
+  description: MyText
+  watched: 2023-03-04
+  my_rating: 
+  1.5: MyString
+  2: MyString
+  2.5: MyString
+  3: MyString
+  3.5: MyString
+  4: MyString
+  4.5: MyString
+  5: MyString
+  5.5: MyString
+  6: MyString
+  6.5: MyString
+  7: MyString
+  7.5: MyString
+  8: MyString
+  8.5: MyString
+  9: MyString
+  9.5: MyString
+  10}: MyString
