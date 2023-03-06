@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_04_224227) do
+ActiveRecord::Schema.define(version: 2023_03_06_225224) do
 
   create_table "films", force: :cascade do |t|
     t.string "title"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2023_03_04_224227) do
     t.string "genre"
     t.text "description"
     t.date "watched"
-    t.integer "my_rating"
+    t.float "my_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

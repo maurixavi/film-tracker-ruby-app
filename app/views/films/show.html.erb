@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
+  <!--<p id="notice"><%= notice %></p>-->
 
+<%= link_to 'Back', films_path %>
 
 <div class="jumbotron">
   <h1 class="display-4"><%= @film.title %></h1>
@@ -29,10 +30,11 @@
  
   <div class="card-body">
     <!--<h5 class="card-title">Special title treatment</h5>-->
-    <p class="card-text"><p><strong>Watched: </strong><%= @film.watched %><%= "   |   " %><strong>My rating: </strong><%= @film.my_rating %></p></p>
+    <p class="card-text"><p><strong>Watched: </strong><%= @film.watched %><%= "   |   " %><strong>My rating: </strong><%= number_with_precision(@film.my_rating, precision: 2) %></p></p>
     <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
   </div>
 </div>
+
 
 
 <br>
