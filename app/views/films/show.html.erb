@@ -1,15 +1,17 @@
   <!--<p id="notice"><%= notice %></p>-->
 
-<%= link_to 'Back', films_path %>
+<%= link_to '<< Back', films_path %>
 
 <div class="jumbotron">
   <h1 class="display-4"><%= @film.title %></h1>
-    <p><%= @film.year %><%= "  ·  "  %><%= @film.duration %><%= " min. "  %></p>
+    <p><%= @film.year %><strong><%= " · "  %></strong><%= @film.duration %><%= " min"  %><strong><%= " · "  %></strong><strong>⭐</strong><%= number_with_precision(@film.my_rating, precision: (@film.my_rating.to_i == @film.my_rating) ? 0 : 1) %><%= "/10  " %></p>
   <p class="lead"><%= @film.description %></p>
   <hr class="my-4">
   <!--<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
   
 </div>
+
+
 
 <div class="card">
   <div class="card-header">
@@ -30,7 +32,8 @@
  
   <div class="card-body">
     <!--<h5 class="card-title">Special title treatment</h5>-->
-    <p class="card-text"><p><strong>Watched: </strong><%= @film.watched %><%= "   |   " %><strong>My rating: </strong><%= number_with_precision(@film.my_rating, precision: 2) %></p></p>
+    <p class="card-text"><p><strong>Watched: </strong><%= @film.watched %>
+    <!--<p class="card-text"><p><strong>Watched: </strong><%= @film.watched %><%= "   |   " %><strong>My rating: ⭐ </strong><strong><%= number_with_precision(@film.my_rating, precision: 1) %></strong><%= "/10  " %></p></p>-->
     <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
   </div>
 </div>
@@ -41,4 +44,4 @@
 
 <%= link_to 'Edit', edit_film_path(@film) %> 
 <!--<%= link_to 'Back', films_path %>-->
-<br>
+<br><br>
