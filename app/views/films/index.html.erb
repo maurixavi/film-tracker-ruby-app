@@ -1,44 +1,50 @@
 <p id="notice"><%= notice %></p>
 
 <!--<div class="d-flex justify-content-center">-->
-<div class="d-flex justify-content-between p-3 ">
+<div class="d-flex justify-content-between p-2 ">
   <div class="text-muted"><h4>Films Watched</h4></div>
   <div class="text-primary"><%= link_to 'Add Film', new_film_path, class:"btn btn-primary"  %></div>
 </div>
 
 
-<table class="table  table-hover">
+<table class="table  table-hover" style="border-spacing: 20px;">
   <thead class="thead-dark"> 
     <tr>
-      <th class="col-3"></th>
+      <th class="col-2"></th>
+      <th class="col-9"></th>
       <!--<th>Year</th>-->
       <!--<th>Duration</th>-->
-      <th class="col-2"></th>
+      <th class="col-1"></th>
       <!--<th>Director</th>-->
+ 
+     <!--<th class="col-1"></th>-->
+
       <th></th>
-     <th class="col-1"></th>
-      <th></th>
-      <th></th>
-      <th colspan="2"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody >
     <% @films.each do |film| %>
       <tr>
-
-
-        <td><h5><%= link_to film.title, film %></h5><%=" ("%><%=film.year%><%=", "%><%= film.country %><%=")"%></td>
+        
+        <td>
+        <% if film.poster_url.present? %>
+          <%= image_tag film.poster_url, width: 160 %>
+        <% end %>
+        </td>
+        <td><h5><%= link_to film.title, film %></h5><%=" ("%><%=film.year%><%=", "%><%= film.country %><%=") "%>⭐<strong><%= film.my_rating %></strong><br>
+        <br><p><em><%= film.description %></em></p></td>
         <!--<td><%= film.duration %></td>-->
         <!--<td><%= film.director %></td>-->
-        <td><%= film.genre %></td>
-        <td><em><%= film.description %></td></em>
+        <!--<td><%= film.genre %></td>-->
+        <!--<td><em><%= film.description %></td></em>-->
         <td><%= film.watched.strftime("%b, %Y")%></td>
-        <td>⭐<strong><%= film.my_rating %></strong></td>
+        <!--<td>⭐<strong><%= film.my_rating %></strong></td>-->
         
         <!--<td><%= link_to 'View', film %></td>-->
-        <td><%= link_to 'Edit', edit_film_path(film), class:"btn btn-secondary btn-sm"  %></td>
-        <td><%= link_to 'X', film, method: :delete, data: { confirm: 'Are you sure you want to delete this film?' },  class:"btn btn-danger btn-sm" %></td>
+        <!--<td><%= link_to 'Edit', edit_film_path(film), class:"btn btn-secondary btn-sm"  %></td>-->
+        <td><%= link_to '✖', film, method: :delete, data: { confirm: 'Are you sure you want to delete this film?' },  class:"btn" %></td>
       </tr>
     <% end %>
   </tbody>
