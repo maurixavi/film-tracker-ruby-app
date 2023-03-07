@@ -1,36 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Films Watched</h1>
+<!--<div class="d-flex justify-content-center">-->
+<div class="d-flex justify-content-between p-3 ">
+  <div class="text-muted"><h4>Films Watched</h4></div>
+  <div class="text-primary"><%= link_to 'Add Film', new_film_path, class:"btn btn-primary"  %></div>
+</div>
+
 
 <table class="table  table-hover">
-  <thead class="table-dark"> 
+  <thead class="thead-dark"> 
     <tr>
-      <th>Title</th>
-      <th>Year</th>
+      <th class="col-3"></th>
+      <!--<th>Year</th>-->
       <!--<th>Duration</th>-->
-      <th>Country</th>
+      <th class="col-2"></th>
       <!--<th>Director</th>-->
-      <th>Genre</th>
-      <th>Description</th>
-      <th>Watched</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
+      <th></th>
+     <th class="col-1"></th>
+      <th></th>
+      <th></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @films.each do |film| %>
       <tr>
-        <td><%= film.title %></td>
-        <td><%= film.year %></td>
+
+
+        <td><h5><%= link_to film.title, film %></h5><%=" ("%><%=film.year%><%=", "%><%= film.country %><%=")"%></td>
         <!--<td><%= film.duration %></td>-->
-        <td><%= film.country %></td>
         <!--<td><%= film.director %></td>-->
         <td><%= film.genre %></td>
-        <td><%= film.description %></td>
-        <td><%= film.watched.strftime("%b %d, %Y")%></td>
-        <td><%= film.my_rating %></td>
-        <td><%= link_to 'View', film %></td>
+        <td><em><%= film.description %></td></em>
+        <td><%= film.watched.strftime("%b, %Y")%></td>
+        <td>⭐<strong><%= film.my_rating %></strong></td>
+        
+        <!--<td><%= link_to 'View', film %></td>-->
         <td><%= link_to 'Edit', edit_film_path(film), class:"btn btn-secondary btn-sm"  %></td>
         <td><%= link_to 'X', film, method: :delete, data: { confirm: 'Are you sure you want to delete this film?' },  class:"btn btn-danger btn-sm" %></td>
       </tr>
