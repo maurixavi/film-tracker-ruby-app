@@ -5,24 +5,35 @@
 <div class="jumbotron">
   <h1 class="display-4"><%= @film.title %></h1>
     <p><%= @film.year %><strong><%= " · "  %></strong><%= @film.duration %><%= " min"  %><strong><%= " · "  %></strong><strong>⭐</strong><%= number_with_precision(@film.my_rating, precision: (@film.my_rating.to_i == @film.my_rating) ? 0 : 1) %><%= "/10  " %></p>
+
   <p class="lead"><%= @film.description %></p>
   <hr class="my-4">
   <!--<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
   
 </div>
 
-
-
 <div class="card">
   <div class="card-header">
     Details
   </div>
-  <div class="card-body">
-    <!--<h5 class="card-title">Special title treatment</h5>-->
-    <p class="card-text"><p><strong>Country: </strong><%= @film.country %></p></p>
-    <p class="card-text"><p><strong>Director: </strong><%= @film.director %></p></p>
-    <p class="card-text"><p><strong>Genre: </strong><%= @film.genre %></p></p>
-    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+  <div class="row">
+    <div class="col">
+      <div class="card-body" >
+        <% if @film.poster_url.present? %>
+    <p class="lead"><%= image_tag @film.poster_url, width: 240 %></p>
+  <% end %>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="card-body">
+        <!--<h5 class="card-title">Special title treatment</h5>-->
+        <p class="card-text"><p><strong>Country: </strong><%= @film.country %></p></p>
+        <p class="card-text"><p><strong>Director: </strong><%= @film.director %></p></p>
+        <p class="card-text"><p><strong>Genre: </strong><%= @film.genre %></p></p>
+        <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -32,7 +43,7 @@
  
   <div class="card-body">
     <!--<h5 class="card-title">Special title treatment</h5>-->
-    <p class="card-text"><p><strong>Watched: </strong><%= @film.watched %>
+    <p class="card-text"><p><strong>Watched: </strong><%= @film.watched.strftime("%b, %Y") %> 
     <!--<p class="card-text"><p><strong>Watched: </strong><%= @film.watched %><%= "   |   " %><strong>My rating: ⭐ </strong><strong><%= number_with_precision(@film.my_rating, precision: 1) %></strong><%= "/10  " %></p></p>-->
     <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
   </div>
