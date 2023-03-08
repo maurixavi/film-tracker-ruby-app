@@ -7,7 +7,7 @@ services:
     name: rails
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startComand: bundle exec rails s
+    startComand: "bundle exec rails s"
     envVars:
     - key: RAILS_MASTER_KEY
       sync: false
