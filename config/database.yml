@@ -21,6 +21,11 @@ test:
   database: db/test.sqlite3
 
 production:
+  <<: *default
+  url: <% ENV["DATABASE_URL"] %>
+  database: render_deploy_production
+  username: render_deploy
+  password: <% ENV['RENDER_DEPLOY_DATABASE_PASSWORD'] %>
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
