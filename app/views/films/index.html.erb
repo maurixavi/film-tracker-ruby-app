@@ -1,3 +1,6 @@
+<% if user_signed_in? %>
+
+
 <p id="notice"><%= notice %></p>
 
 <!--<div class="d-flex justify-content-center">-->
@@ -26,6 +29,7 @@
 
   <tbody >
     <% @films.each do |film| %>
+    <% if film.user == current_user %>
       <tr class="p-100">
         
         <td>
@@ -43,9 +47,10 @@
         <!--<td>⭐<strong><%= film.my_rating %></strong></td>-->
         
         <!--<td><%= link_to 'View', film %></td>-->
-        <!--<td><%= link_to 'Edit', edit_film_path(film), class:"btn btn-secondary btn-sm"  %></td>-->
+        <td><%= link_to 'Edit', edit_film_path(film), class:"btn btn-secondary btn-sm"  %></td>
         <td><%= link_to '✖', film, method: :delete, data: { confirm: 'Are you sure you want to delete this film?' },  class:"btn" %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -55,3 +60,10 @@
 <!--%= link_to 'Add Film', new_film_path, class:"btn btn-primary"  %>-->
 <br>
 <br>
+
+<% else %>
+  <h1>Hi there!</h3>
+  <p>Please <%= link_to 'Log in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %> to start tracking all your films.</p>
+
+
+<% end %>

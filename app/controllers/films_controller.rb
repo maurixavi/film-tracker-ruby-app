@@ -1,5 +1,7 @@
 class FilmsController < ApplicationController
   before_action :set_film, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /films or /films.json
   def index
@@ -58,6 +60,11 @@ class FilmsController < ApplicationController
     end
   end
 
+  def correct_user
+    @film = current_user.films.find_by(id: params[:id])
+    redirect_to films_path, notice: "Not authorized to edit this film" if @film.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_film
@@ -66,6 +73,6 @@ class FilmsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def film_params
-      params.require(:film).permit(:title, :year, :duration, :country, :director, :genre, :description, :watched, :my_rating, :poster_url)
+      params.require(:film).permit(:title, :year, :duration, :country, :director, :genre, :description, :watched, :my_rating, :poster_url, :user_id)
     end
 end
