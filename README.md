@@ -4,12 +4,13 @@ MyFilmTracker is a Ruby on Rails web application that allows you to keep track o
 
 ## Key Features
 
-### User Registration and Login
+### User Registration, Login, and Profile Editing
 
 - Users can create a personalized account.
 - Registered users can log in to their accounts.
+- Edit user profiles to update personal information.
 
-### Add Movies
+### Add Movies and Edit Details
 
 ![Add Movies](app/assets/images/newfilm-sample.png)
 
@@ -17,6 +18,7 @@ MyFilmTracker is a Ruby on Rails web application that allows you to keep track o
 - Enter movie details, such as title, director, release year, genre, and a brief description.
 - Rate the movies you've watched.
 - Record the date you watched the movie.
+- After adding a movie, users can edit any field to keep their collection up-to-date.
 
 ### Movie Details and Ratings
 
